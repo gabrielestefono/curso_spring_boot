@@ -2,18 +2,26 @@ package br.com.webestcoding.secao_05;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 @RestController
 public class MathController {
-    private static final String TEMPLATE = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
-    @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    @GetMapping(value = "/sum/{numberOne}/{numberTwo}")
     public double sum(
             @PathVariable(value = "numberOne") String numberOne,
-            @PathVariable(value = "numberTwo") String numberTwo
-    ) {
-        return 1D;
+            @PathVariable(value = "numberTwo") String numberTwo)
+            throws Exception {
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+            throw new Exception();
+        }
+        return (convertToDouble(numberOne) + convertToDouble(numberTwo));
+    }
+
+    private boolean isNumeric(String strNumber) {
+        // TODO: Criar aqui a função
+        return false;
+    }
+
+    private Double convertToDouble(String strNumber) {
+        // TODO: Criar aqui a função
+        return null;
     }
 }
