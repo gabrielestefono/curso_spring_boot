@@ -1,4 +1,4 @@
-package br.com.webestcoding.secao_05;
+package br.com.webestcoding.secao_06;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +15,23 @@ public class MathController {
         return (convertToDouble(numberOne) + convertToDouble(numberTwo));
     }
 
-    private boolean isNumeric(String strNumber) {
-        // TODO: Criar aqui a função
-        return false;
-    }
-
     private Double convertToDouble(String strNumber) {
-        // TODO: Criar aqui a função
+        if (strNumber == null) {
+            return 0D;
+        }
+        String number = strNumber.replace(",", ".");
+        if (isNumeric(number)) {
+            return Double.parseDouble(number);
+        }
         return null;
     }
+
+    private boolean isNumeric(String strNumber) {
+        if (strNumber == null) {
+            return false;
+        }
+        String number = strNumber.replace(",", ".");
+        return number.matches("[-+]?\\d*\\.?\\d+");
+    }
+
 }

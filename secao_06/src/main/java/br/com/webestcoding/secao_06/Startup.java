@@ -1,4 +1,4 @@
-package br.com.webestcoding.secao_05;
+package br.com.webestcoding.secao_06;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
