@@ -2,15 +2,16 @@ package br.com.webestcoding.secao_06;
 
 import org.springframework.web.bind.annotation.*;
 
+import br.com.webestcoding.exceptions.UnsupportedMathOperationException;
+
 @RestController
 public class MathController {
+
     @GetMapping(value = "/sum/{numberOne}/{numberTwo}")
-    public double sum(
-            @PathVariable(value = "numberOne") String numberOne,
-            @PathVariable(value = "numberTwo") String numberTwo)
-            throws Exception {
+    public double sum(@PathVariable("numberOne") String numberOne,
+            @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new Exception();
+            throw new UnsupportedMathOperationException("Por favor, use um valor numérico!");
         }
         return (convertToDouble(numberOne) + convertToDouble(numberTwo));
     }

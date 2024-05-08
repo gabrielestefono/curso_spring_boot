@@ -1,1 +1,2 @@
-spring.application.name=secao_05
+spring.application.name: secao_06
+# server.error.whitelabel.enabled: false
