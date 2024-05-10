@@ -1,4 +1,4 @@
-package br.com.webestcoding.exceptions;
+package br.com.webestcoding.secao_06.exceptions;
 
 import java.io.Serializable;
 import java.util.Date;

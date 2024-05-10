@@ -1,4 +1,4 @@
-package br.com.webestcoding.model;
+package br.com.webestcoding.secao_06.model;
 
 import java.io.Serializable;
 

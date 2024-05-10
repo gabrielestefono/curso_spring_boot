@@ -3,10 +3,19 @@ package br.com.webestcoding.secao_06;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
-import br.com.webestcoding.model.Person;
-import br.com.webestcoding.services.PersonServices;
+import br.com.webestcoding.secao_06.model.Person;
+import br.com.webestcoding.secao_06.services.PersonServices;
 
 @RestController
 @RequestMapping("/person")
@@ -17,31 +26,31 @@ public class PersonController {
         this.service = service;
     }
 
-    @GetMapping("")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Person> findAll() {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Person findById(@PathVariable("id") String id) {
-        return service.findById(id);
-    }
-
-    @PostMapping("")
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Person create(@RequestBody Person person) {
         return service.create(person);
     }
 
-    @PutMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Person findById(@PathVariable("id") Long id) {
+        return service.findById(id);
+    }
+
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Person update(@PathVariable("id") String id, @RequestBody Person person) {
+    public Person update(@PathVariable("id") Long id, @RequestBody Person person) {
         return service.update(id, person);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") String id) {
+    public void delete(@PathVariable("id") Long id) {
         service.delete(id);
     }
 }
