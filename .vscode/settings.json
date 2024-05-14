@@ -1,6 +1,3 @@
 {
-	"java.compile.nullAnalysis.mode": "automatic",
-	"java.project.sourcePaths": [
-		"secao_13"
-	]
+	"java.compile.nullAnalysis.mode": "disabled"
 }
