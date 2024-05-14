@@ -9,6 +9,7 @@ import br.com.webestcoding.secao_06.data.vo.v1.PersonVO;
 import br.com.webestcoding.secao_06.data.vo.v2.PersonVOV2;
 import br.com.webestcoding.secao_06.exceptions.ResourceNotFoundException;
 import br.com.webestcoding.secao_06.mapper.DozerMapper;
+import br.com.webestcoding.secao_06.mapper.custom.PersonMapper;
 import br.com.webestcoding.secao_06.model.Person;
 import br.com.webestcoding.secao_06.repositories.PersonRepository;
 
@@ -18,8 +19,11 @@ public class PersonServices {
 
 	PersonRepository repository;
 
-	public PersonServices(PersonRepository repository) {
+	PersonMapper mapper;
+
+	public PersonServices(PersonRepository repository, PersonMapper mapper) {
 		this.repository = repository;
+		this.mapper = mapper;
 	}
 
 	public List<PersonVO> findAll() {
@@ -40,8 +44,8 @@ public class PersonServices {
 
 	public PersonVOV2 createV2(PersonVOV2 person) {
 		logger.info("Create One PersonVOV2");
-		Person personSave = DozerMapper.parseObject(person, Person.class);
-		return DozerMapper.parseObject(this.repository.save(personSave), PersonVOV2.class);
+		Person personSave = mapper.convertVOToEntity(person);
+		return mapper.convertEntityToVO(this.repository.save(personSave));
 	}
 
 	public PersonVO update(Long id, PersonVO person) {
