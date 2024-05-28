@@ -1,0 +1,1 @@
+INSERT INTO `person` VALUES (1,'Alguém', 'Inexistente', 'Rua dos bobos','M'),(2,'Alguém', 'Existente', 'Rua dos bobos','F');
