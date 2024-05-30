@@ -14,4 +14,13 @@ public class FunRestController {
 	public String sayHello() {
 		return "Hello World!";
 	}
+
+	/**
+	 * Exporse a new endpoinst for workout
+	 * @return String
+	 */
+	@GetMapping("/workout")
+	public String getDailyWorkout() {
+		return "Run a hard 5k!";
+	}
 }
