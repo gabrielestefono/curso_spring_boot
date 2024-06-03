@@ -9,5 +9,4 @@ public class SopringcoredemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SopringcoredemoApplication.class, args);
 	}
-
 }
