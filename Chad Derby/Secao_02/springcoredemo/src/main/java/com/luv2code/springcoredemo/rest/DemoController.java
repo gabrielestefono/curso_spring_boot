@@ -1,7 +1,9 @@
-package com.luv2code.sopringcoredemo;
+package com.luv2code.springcoredemo.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.luv2code.util.Coach;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DemoController {
 	private final Coach myCoach;
 
-	@Autowired // Não necessário
 	public DemoController(Coach myCoach) {
 		this.myCoach = myCoach;
 	}
