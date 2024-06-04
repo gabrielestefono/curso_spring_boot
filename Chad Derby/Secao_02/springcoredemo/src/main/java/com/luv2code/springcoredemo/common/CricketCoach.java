@@ -3,7 +3,10 @@ package com.luv2code.springcoredemo.common;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CrickedCode implements Coach{
+public class CricketCoach implements Coach{
+	public CricketCoach(){
+		System.out.println("In constructor " + getClass().getSimpleName());
+	}
 
 	@Override
 	public String getDailyWorkOut() {
