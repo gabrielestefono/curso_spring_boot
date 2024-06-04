@@ -11,7 +11,7 @@ import com.luv2code.springcoredemo.common.Coach;
 public class DemoController {
 	private final Coach myCoach;
 
-	public DemoController(@Qualifier("baseballCoach") Coach myCoach) {
+	public DemoController(@Qualifier("tennisCoach") Coach myCoach) {
 		this.myCoach = myCoach;
 	}
 
