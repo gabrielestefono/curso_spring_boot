@@ -12,7 +12,7 @@ import com.luv2code.springcoredemo.common.Coach;
 public class DemoController {
 	private final Coach myCoach;
 
-	public DemoController(@Qualifier("swimCoach") Coach myCoach) {
+	public DemoController(@Qualifier("aquatic") Coach myCoach) {
 		System.out.println("In constructor: " + getClass().getSimpleName());
 		this.myCoach = myCoach;
 	}
