@@ -12,25 +12,13 @@ import com.luv2code.springcoredemo.common.Coach;
 public class DemoController {
 	private final Coach myCoach;
 
-	private final Coach anotherCoach;
-
-	public DemoController(
-			@Qualifier("cricketCoach") Coach myCoach,
-			@Qualifier("cricketCoach") Coach anotherCoach
-		) {
+	public DemoController(@Qualifier("cricketCoach") Coach myCoach) {
 		System.out.println("In constructor: " + getClass().getSimpleName());
 		this.myCoach = myCoach;
-		this.anotherCoach = anotherCoach;
 	}
 
 	@GetMapping("/dailyworkout")
 	public String getMethodName() {
 		return this.myCoach.getDailyWorkOut();
 	}
-
-	@GetMapping("/check")
-	public String check() {
-		return "Comáring Beans: myCoach == anotherCoach, " + (myCoach == anotherCoach);
-	}
-	
 }
