@@ -27,9 +27,11 @@ public class CruddemoApplication {
 		readStudent(studentDAO);
 		queryForStudent(studentDAO);
 		queryForStudentByLastName(studentDAO);
+		updateStudent(studentDAO);
+		deleteStudent(studentDAO);
+		deleteAllStudents(studentDAO);
 		};
 	}
-
 	private static void createStudent(StudentDAO studentDAO) {
 		// create student object
 		System.out.println("Creating new student object...");
@@ -93,5 +95,34 @@ public class CruddemoApplication {
 		for (Student student : theStudents) {
 			System.out.println(student);
 		}
+	}
+
+	private static void updateStudent(StudentDAO studentDAO) {
+		// Retrieve student based on the id: Primary Key
+		int studentId = 1;
+		System.out.println("Getting student with id = " + studentId);
+		Student myStudent = studentDAO.findbyId(studentId);
+
+		// Change first name to "Scooby"
+		System.out.println("Updating Student...");
+		myStudent.setFirstName("Scooby");
+		
+		// Update the student
+		studentDAO.updateStudent(myStudent);
+
+		// Display the updated Student
+		System.out.println("Updated Student: " + myStudent);
+	}
+
+	private static void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		System.out.println("Deletando estudante de id = " + studentId);
+		studentDAO.delete(studentId);
+	}
+	
+	private static void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting all students from the database...");
+		int numRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Deleted rows from the database = " + numRowsDeleted);
 	}
 }

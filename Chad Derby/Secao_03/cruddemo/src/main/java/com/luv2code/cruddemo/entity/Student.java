@@ -49,7 +49,7 @@ public class Student {
 		return fisrtName;
 	}
 
-	public void setFisrtName(String fisrtName) {
+	public void setFirstName(String fisrtName) {
 		this.fisrtName = fisrtName;
 	}
 
