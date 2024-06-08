@@ -30,6 +30,7 @@ public class CruddemoApplication {
 		updateStudent(studentDAO);
 		deleteStudent(studentDAO);
 		deleteAllStudents(studentDAO);
+		createMultipleStudents(studentDAO);
 		};
 	}
 	private static void createStudent(StudentDAO studentDAO) {
