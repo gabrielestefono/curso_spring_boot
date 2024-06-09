@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-CruddemoApplication<cruddemo>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "com.luv2code.springboot.cruddemo.CruddemoApplication",
+			"projectName": "cruddemo",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env"
+		}
+	]
+}
