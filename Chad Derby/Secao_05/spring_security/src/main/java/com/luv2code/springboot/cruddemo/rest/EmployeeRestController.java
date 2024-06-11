@@ -42,9 +42,13 @@ public class EmployeeRestController {
   }
 
 
-  @PutMapping("/employees")
-  public Employee updateEmployee(@RequestBody Employee theEmployee) {
-    return employeeService.save(theEmployee);
+  @PutMapping("/employees/{id}")
+  public Employee updateEmployee(@RequestBody Employee theEmployee, @PathVariable int id) {
+    Employee employee = this.getEmployee(id);
+    employee.setFirstName(theEmployee.getFirstName());
+    employee.setLastName(theEmployee.getLastName());
+    employee.setEmail(theEmployee.getEmail());
+    return employeeService.save(employee);
   }
 
   @DeleteMapping("/employees/{employeeId}")
