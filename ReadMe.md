@@ -1,4 +1,3 @@
-```markdown
 # Cursos de Spring Boot
 
 ## Sobre os Cursos
@@ -37,4 +36,3 @@ na pasta do projeto.
 - **Nome:** Gabriel Estéfono
 - **LinkedIn:** [Gabriel Estéfono](https://www.linkedin.com/in/gabrielestefono/)
 - **Email:** gabrielestefono@hotmail.com
-```
