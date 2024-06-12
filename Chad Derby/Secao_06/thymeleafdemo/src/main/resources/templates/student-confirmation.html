@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Student Confirmation</title>
+		<link rel="stylesheet" th:href="@{/css/demo.css}">
+	</head>
+	<body>
+		<h3>Student Confirmation</h3>
+		<p th:text="'The student is confirmed: ' + ${student.firstName} + ' ' + ${student.lastName}"></p>
+		<p th:text="'from ' + ${student.country}"></p>
+		<p th:text="'Favorite programing language ' + ${student.language}"></p>
+		<p th:text="'Favorite operational system ' + ${student.operationalSystem}"></p>
+	</body>
+</html>

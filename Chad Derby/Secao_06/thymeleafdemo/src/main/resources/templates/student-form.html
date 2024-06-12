@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Student Registration Form</title>
+		<link rel="stylesheet" th:href="@{/css/demo.css}">
+	</head>
+	<body>
+		<h3>Student Registration Form</h3>
+		<p th:text="'Olá, ' + ${param.studentName}+ '!'"></p>
+		<form th:action="@{/process-student-form}" method="POST" th:object="${student}">
+			<div>
+				<label for="firstName">First name:</label>
+				<input type="text" th:field="*{firstName}" id="firstName">
+			</div>
+			<div>
+				<label for="lastName">Last name:</label>
+				<input type="text" th:field="*{lastName}" id="lastName">
+			</div>
+			<div>
+                <label for="country">Country:</label>
+                <select th:field="*{country}" id="country">
+                    <option th:each="tempCountry : ${countries}" th:text="${tempCountry}" th:value="${tempCountry}"></option>
+                </select>
+            </div>
+            <div>
+                <input type="radio" th:field="*{language}" th:each="tempLenguages : ${language}" th:text="${tempLenguages}" th:value="${tempLenguages}"/>
+            </div>
+            <div>
+                <input type="checkbox" name="operationalSystem" th:field="*{operationalSystem}" th:each="tempoperationalSystem : ${operationalSystem}" th:text="${tempoperationalSystem}" th:value="${tempoperationalSystem}"/>
+            </div>
+			<input type="submit" value="Submit">
+		</form>
+
+		<p>The message: <span th:text="${message}"></span></p>
+	</body>
+</html>
